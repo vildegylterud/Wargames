@@ -2,10 +2,10 @@ package no.ntnu.vildegy.wargames;
 
 public abstract class Unit {
 
-    private String name;
-    private int health;
-    private int attack;
-    private int armour;
+    protected String name;
+    protected int health;
+    protected int attack;
+    protected int armour;
 
     /** Constructor
      *
@@ -22,6 +22,11 @@ public abstract class Unit {
         this.setHealth(health);
     }
 
+    /**
+     * Method that finds the health of the opponent after attacking the unit
+     *
+     * @param opponent,the one who is attacked
+     */
     public void attack(Unit opponent) {
         opponent.setHealth(opponent.getHealth() - (this.attack + this.getAttackBonus()) + (opponent.getArmour() + opponent.getResistBonus()));
     };
@@ -42,26 +47,27 @@ public abstract class Unit {
         return armour;
     }
 
+    /**
+     * Set method for health value
+     *
+     * @param health cant be set to less than zero
+     * if so, illegal argument exception will be thrown
+     */
     public void setHealth(int health) {
         if(health >= 0)  {
             this.health = health;
         } else {
             throw new IllegalArgumentException("Health cant be set to less then 0");
         }
-
-
     }
 
-
-    //TODO: endre tekslig beskrivelse
     @Override
     public String toString() {
-        return "Unit{" +
-                "name='" + name + '\'' +
-                ", health=" + health +
-                ", attack=" + attack +
-                ", armour=" + armour +
-                '}';
+        return "Unit: " +
+                "Name: '" + name +  "\n" +
+                "Health: " + health + "\n" +
+                "Attack: " + attack + "\n" +
+                "Armour: " + armour;
     }
 
     public abstract int getAttackBonus();
