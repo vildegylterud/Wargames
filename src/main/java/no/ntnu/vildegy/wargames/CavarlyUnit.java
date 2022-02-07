@@ -2,7 +2,6 @@ package no.ntnu.vildegy.wargames;
 
 public class CavarlyUnit extends Unit {
 
-
     /**
      * Constructor
      *
@@ -21,17 +20,19 @@ public class CavarlyUnit extends Unit {
         this.health = health;
         this.attack = 20;
         this.armour = 12;
-
-
     }
+
     @Override
     public int getAttackBonus() {
-        int chargeBonus = 6;
+        int totalBonus;
+        int chargeBonus = 4;
         int melee = 2;
-
-        //først attack -> returner chargeBonus + melee
-        //attack > 1 -> sett chargebonus = 0;
-        return chargeBonus + melee;
+        if(timesAttacked == 0) { //TODO: undersøke om det stemmer med 0 og ikke 1
+            totalBonus = chargeBonus + melee;
+        } else {
+            totalBonus = melee;
+        }
+        return totalBonus;
     }
 
     @Override

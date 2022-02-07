@@ -7,6 +7,8 @@ public abstract class Unit {
     protected int attack;
     protected int armour;
 
+    int timesAttacked;
+
     /** Constructor
      *
      * @param name a short descriptive name
@@ -20,6 +22,15 @@ public abstract class Unit {
         this.armour = armour;
         // call Setter method from within constructor
         this.setHealth(health);
+    }
+
+    /**Method to describe that an unit is attacked
+     *
+     * @param i counter for total attacks
+     */
+    public void takeDamage(int i) {
+        this.setHealth(this.getHealth() - i);
+        timesAttacked++;
     }
 
     /**

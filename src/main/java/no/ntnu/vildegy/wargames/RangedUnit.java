@@ -3,6 +3,7 @@ package no.ntnu.vildegy.wargames;
 public class RangedUnit extends Unit {
 
 
+    int distanceDefense;
     int rangeBonus = 3;
 
     /**
@@ -26,32 +27,21 @@ public class RangedUnit extends Unit {
         this.armour = 8;
     }
 
-    //TODO: lag metode
-    public boolean isAttacket() {
-        return null;
-    }
-
 
     @Override
     public int getAttackBonus() {
         return rangeBonus;
     }
 
-    //TODO: lag metoden
+
     @Override
     public int getResistBonus() {
-        int distanceDefense = 6;
-
-        //hvis attack fra fiende =* 1
-        //returner distanceDefense
-
-        //hvis attack fra fiende
-
-        Unit fiende = null;
-        RangedUnit enhet = null;
-
-        if(enhet.isAttacket()) {
-            distanceDefense -= 2;
+        if (timesAttacked == 0) {
+            distanceDefense = 6;
+        } else if (timesAttacked == 1) {
+            distanceDefense = 4;
+        } else {
+            distanceDefense = 2;
         }
         return distanceDefense;
     }
