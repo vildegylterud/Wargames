@@ -1,7 +1,6 @@
-package no.ntnu.vildegy.wargames;
+package no.ntnu.vildegy.wargames.io;
 
 public class InfantryUnit extends Unit {
-
 
     /**
      * Constructor
@@ -12,7 +11,6 @@ public class InfantryUnit extends Unit {
      * @param armour defensive value that protects during attack
      */
     public InfantryUnit(String name, int health, int attack, int armour) {
-
         super(name, health, attack, armour);
     }
 

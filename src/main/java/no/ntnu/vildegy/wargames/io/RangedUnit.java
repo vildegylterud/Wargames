@@ -1,7 +1,6 @@
-package no.ntnu.vildegy.wargames;
+package no.ntnu.vildegy.wargames.io;
 
 public class RangedUnit extends Unit {
-
 
     int distanceDefense;
     int rangeBonus = 3;
@@ -22,11 +21,9 @@ public class RangedUnit extends Unit {
         super(name, health, 15, 8);
         this.name = name;
         this.health = health;
-
         this.attack = 15;
         this.armour = 8;
     }
-
 
     @Override
     public int getAttackBonus() {
@@ -36,11 +33,12 @@ public class RangedUnit extends Unit {
 
     @Override
     public int getResistBonus() {
-        if (timesAttacked == 0) {
+
+        if (timesAttacked == 1) {
             distanceDefense = 6;
-        } else if (timesAttacked == 1) {
+        } else if (timesAttacked == 2) {
             distanceDefense = 4;
-        } else {
+        } else if(timesAttacked >= 3){
             distanceDefense = 2;
         }
         return distanceDefense;

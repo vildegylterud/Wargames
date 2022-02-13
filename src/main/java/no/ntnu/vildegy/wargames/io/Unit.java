@@ -1,4 +1,4 @@
-package no.ntnu.vildegy.wargames;
+package no.ntnu.vildegy.wargames.io;
 
 public abstract class Unit {
 
@@ -24,14 +24,6 @@ public abstract class Unit {
         this.setHealth(health);
     }
 
-    /**Method to describe that an unit is attacked
-     *
-     * @param i counter for total attacks
-     */
-    public void takeDamage(int i) {
-        this.setHealth(this.getHealth() - i);
-        timesAttacked++;
-    }
 
     /**
      * Method that finds the health of the opponent after attacking the unit
@@ -40,6 +32,7 @@ public abstract class Unit {
      */
     public void attack(Unit opponent) {
         opponent.setHealth(opponent.getHealth() - (this.attack + this.getAttackBonus()) + (opponent.getArmour() + opponent.getResistBonus()));
+        opponent.timesAttacked++;
     };
 
     public String getName() {

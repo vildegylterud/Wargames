@@ -1,4 +1,4 @@
-package no.ntnu.vildegy.wargames;
+package no.ntnu.vildegy.wargames.io;
 
 public class CavarlyUnit extends Unit {
 
@@ -24,12 +24,13 @@ public class CavarlyUnit extends Unit {
 
     @Override
     public int getAttackBonus() {
-        int totalBonus;
+        int totalBonus = 0;
         int chargeBonus = 4;
         int melee = 2;
-        if(timesAttacked == 0) { //TODO: undersøke om det stemmer med 0 og ikke 1
+
+        if(timesAttacked == 1) {
             totalBonus = chargeBonus + melee;
-        } else {
+        } else if(timesAttacked >= 2) {
             totalBonus = melee;
         }
         return totalBonus;
