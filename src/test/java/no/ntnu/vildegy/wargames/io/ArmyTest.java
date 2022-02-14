@@ -100,8 +100,6 @@ class ArmyTest {
     }
 
 
-
-
     //legger kun til units i army1 slik at army1 og 2 ikke er like
     @Test
     void testEqualsUnSuccess() {

@@ -12,15 +12,12 @@ public class CommanderUnit extends CavarlyUnit {
      * @param armour defensive value that protects during attack
      */
     public CommanderUnit(String name, int health, int attack, int armour) {
+
         super(name, health, attack, armour);
     }
 
     public CommanderUnit(String name, int health) {
         super(name, health, 25, 15);
-        this.name = name;
-        this.health = health;
-        this.attack = 25;
-        this.armour = 15;
     }
 
     @Override

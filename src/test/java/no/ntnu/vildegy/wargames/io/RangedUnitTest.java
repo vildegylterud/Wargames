@@ -74,4 +74,11 @@ class RangedUnitTest {
         assertFalse(rangedUnit.getAttackBonus() != 3);
 
     }
+
+    @Test
+    void getAttackBonus() {
+        RangedUnit rangedUnit = new RangedUnit("vilde", 10);
+        System.out.println(rangedUnit.getAttack());
+        System.out.println(rangedUnit.getArmour());
+    }
 }

@@ -16,12 +16,17 @@ public class CavarlyUnit extends Unit {
 
     public CavarlyUnit(String name, int health) {
         super(name, health, 20, 12);
-        this.name = name;
-        this.health = health;
-        this.attack = 20;
-        this.armour = 12;
     }
 
+    /**Method for getting the totalbonus (AttackBonus) depending on
+     * how many times the Cavarly unit has been attacked
+     *
+     * after 1 attack, the totalbonus is chargebonus + melee
+     * from 2 attacks and after the totalbonus is the meleeee
+     *
+     *
+     * @return
+     */
     @Override
     public int getAttackBonus() {
         int totalBonus = 0;

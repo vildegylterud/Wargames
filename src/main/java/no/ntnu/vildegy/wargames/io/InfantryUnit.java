@@ -11,15 +11,13 @@ public class InfantryUnit extends Unit {
      * @param armour defensive value that protects during attack
      */
     public InfantryUnit(String name, int health, int attack, int armour) {
+
         super(name, health, attack, armour);
     }
 
     public InfantryUnit(String name, int health) {
         super(name, health, 15, 10);
-        this.name = name;
-        this.health = health;
-        this.attack = 15;
-        this.armour = 10;
+
     }
 
     @Override

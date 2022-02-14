@@ -19,10 +19,6 @@ public class RangedUnit extends Unit {
 
     public RangedUnit(String name, int health) {
         super(name, health, 15, 8);
-        this.name = name;
-        this.health = health;
-        this.attack = 15;
-        this.armour = 8;
     }
 
     @Override
@@ -31,6 +27,11 @@ public class RangedUnit extends Unit {
     }
 
 
+    /**
+     *
+     * @return a int distancedefence depending on
+     * the counter timesAttacked in Unit attack() method
+     */
     @Override
     public int getResistBonus() {
 

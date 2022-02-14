@@ -16,7 +16,9 @@ public abstract class Unit {
      * @param attack represents the unit´s weapon
      * @param armour defensive value that protects during attack
      */
-    public Unit(String name, int health, int attack, int armour) {
+    public Unit(String name, int health, int attack, int armour) throws IllegalArgumentException {
+        if (name.isBlank()) throw new IllegalArgumentException("Name can not be empty");
+        if (health <= 0) throw new IllegalArgumentException("Health can not be less then, or 0");
         this.name = name;
         this.attack = attack;
         this.armour = armour;
@@ -27,6 +29,7 @@ public abstract class Unit {
 
     /**
      * Method that finds the health of the opponent after attacking the unit
+     * Adds a counter that counts how many
      *
      * @param opponent,the one who is attacked
      */
