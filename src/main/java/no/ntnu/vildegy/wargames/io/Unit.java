@@ -27,14 +27,17 @@ public abstract class Unit {
     }
 
 
-    /**
+    /**x
      * Method that finds the health of the opponent after attacking the unit
      * Adds a counter that counts how many
      *
      * @param opponent,the one who is attacked
      */
     public void attack(Unit opponent) {
-        opponent.setHealth(opponent.getHealth() - (this.attack + this.getAttackBonus()) + (opponent.getArmour() + opponent.getResistBonus()));
+        opponent.setHealth(opponent.getHealth()
+                - (this.attack + this.getAttackBonus())
+                + (opponent.getArmour()
+                + opponent.getResistBonus()));
         opponent.timesAttacked++;
     };
 
@@ -61,11 +64,7 @@ public abstract class Unit {
      * if so, illegal argument exception will be thrown
      */
     public void setHealth(int health) {
-        if(health >= 0)  {
             this.health = health;
-        } else {
-            throw new IllegalArgumentException("Health cant be set to less then 0");
-        }
     }
 
     @Override
