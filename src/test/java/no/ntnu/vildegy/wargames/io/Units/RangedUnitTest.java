@@ -1,4 +1,4 @@
-package no.ntnu.vildegy.wargames.io;
+package no.ntnu.vildegy.wargames.io.Units;
 
 import org.junit.jupiter.api.Test;
 

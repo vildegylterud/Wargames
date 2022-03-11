@@ -1,4 +1,4 @@
-package no.ntnu.vildegy.wargames.io;
+package no.ntnu.vildegy.wargames.io.Units;
 
 public abstract class Unit {
 
@@ -7,7 +7,7 @@ public abstract class Unit {
     protected int attack;
     protected int armour;
 
-    int timesAttacked;
+    public int timesAttacked;
 
     /** Constructor
      *
@@ -39,7 +39,7 @@ public abstract class Unit {
                 + (opponent.getArmour()
                 + opponent.getResistBonus()));
         opponent.timesAttacked++;
-    };
+    }
 
     public String getName() {
         return name;

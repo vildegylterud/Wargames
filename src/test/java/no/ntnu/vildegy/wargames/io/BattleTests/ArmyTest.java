@@ -1,9 +1,11 @@
-package no.ntnu.vildegy.wargames.io;
+package no.ntnu.vildegy.wargames.io.BattleTests;
 
+import no.ntnu.vildegy.wargames.io.Battle.Army;
+import no.ntnu.vildegy.wargames.io.Units.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -136,4 +138,72 @@ class ArmyTest {
         System.out.println(army1.getRandom());
 
     }
+
+
+    @Test
+    @DisplayName("Get Infantry units in army")
+    void getInfantryUnitsTest(){
+        ArrayList<Unit> units = new ArrayList<>();
+        Army testArmy = new Army("army", units);
+        units.add(new CommanderUnit("Bob",180));
+        int i = 0;
+        for (i = 0;i < 50;i++){
+            units.add(new InfantryUnit("Footman",100));
+        }
+        for (i = 0; i < 20; i++){
+            units.add(new RangedUnit("Archer",100));
+        }
+        for (i = 0; i < 5; i++){
+            units.add(new CavarlyUnit("Chad",100));
+        }
+        testArmy.addAllUnits(units);
+        assertEquals(50,testArmy.getInfantryUnits().size());
+    }
+
+    @Test
+    @DisplayName("Get Cavalry units in army")
+    void getCavalryUnitsTest(){
+        ArrayList<Unit> units = new ArrayList<>();
+        Army testArmy = new Army("army", units);
+        units.add(new CommanderUnit("Bob",180));
+        int i = 0;
+        for (i = 0;i < 50;i++){
+            units.add(new InfantryUnit("Footman",100));
+        }
+        for (i = 0; i < 20; i++){
+            units.add(new RangedUnit("Archer",100));
+        }
+        for (i = 0; i < 5; i++){
+            units.add(new CavarlyUnit("Chad",100));
+        }
+        testArmy.addAllUnits(units);
+        assertEquals(5,testArmy.getCavarlyUnits().size());
+    }
+
+    @Test
+    @DisplayName("Get Commander units in army")
+    void getCommanderUnitsTest(){
+        ArrayList<Unit> units = new ArrayList<>();
+        Army testArmy = new Army("army", units);
+        units.add(new CommanderUnit("Bob",180));
+        units.add(new CommanderUnit("Bob",180));
+        units.add(new CommanderUnit("Bob",180));
+        units.add(new CommanderUnit("Bob",180));
+        units.add(new CommanderUnit("Bob",180));
+        units.add(new CommanderUnit("Bob",180));
+        units.add(new CommanderUnit("Bob",180));
+        int i = 0;
+        for (i = 0;i < 50;i++){
+            units.add(new InfantryUnit("Footman",100));
+        }
+        for (i = 0; i < 20; i++){
+            units.add(new RangedUnit("Archer",100));
+        }
+        for (i = 0; i < 5; i++){
+            units.add(new CavarlyUnit("Chad",100));
+        }
+        testArmy.addAllUnits(units);
+        assertEquals(7,testArmy.getCommanderUnits().size());
+    }
 }
+

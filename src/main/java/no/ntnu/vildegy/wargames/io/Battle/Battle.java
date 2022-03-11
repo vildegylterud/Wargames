@@ -1,4 +1,6 @@
-package no.ntnu.vildegy.wargames.io;
+package no.ntnu.vildegy.wargames.io.Battle;
+
+import no.ntnu.vildegy.wargames.io.Units.Unit;
 
 import java.util.Objects;
 import java.util.Random;
@@ -30,6 +32,24 @@ public class Battle {
      * @return the army that has won
      */
     public Army simulate() {
+        int counter = 0;
+        while (armyOne.hasUnits() && armyTwo.hasUnits()) {
+            if (counter % 2 == 0) {
+                armyOneAttack();
+            }
+
+            if (counter % 2 != 0) {
+                armyTwoAttack();
+            }
+            counter++;
+        }
+        if (armyOne.getAllUnits().size() > 0){
+            return armyOne;
+        }
+        return armyTwo;
+
+
+/**
         if (winner != null) throw new UnsupportedOperationException("The simulation has already been run");
 
         while (armyOne.hasUnits() && armyTwo.hasUnits()) {
@@ -56,6 +76,26 @@ public class Battle {
 
         winner = (armyOne.hasUnits()) ? armyOne : armyTwo;
         return winner;
+    }*/
+
+    }
+
+    public void armyOneAttack() {
+        Unit armyTwoRandomUnit = armyTwo.getRandom();
+        armyOne.getRandom().attack(armyTwoRandomUnit);
+
+        if (armyTwoRandomUnit.getHealth() <= 0){
+            armyTwo.remove(armyTwoRandomUnit);
+        }
+    }
+
+    public void armyTwoAttack(){
+        Unit armyOneRandomUnit = armyOne.getRandom();
+        armyTwo.getRandom().attack(armyOneRandomUnit);
+
+        if (armyOneRandomUnit.getHealth() <= 0){
+            armyOne.remove(armyOneRandomUnit);
+        }
     }
 
 
@@ -64,6 +104,6 @@ public class Battle {
         return "Battle: " + "\n" +
                 "army one: " + armyOne + "\n"+
                 "army two: " + armyTwo + "\n" +
-                "Winner: " + winner;
+                "Winner: " + this.simulate().getName();
     }
 }

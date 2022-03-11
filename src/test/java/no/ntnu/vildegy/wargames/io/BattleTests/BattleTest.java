@@ -1,5 +1,11 @@
-package no.ntnu.vildegy.wargames.io;
+package no.ntnu.vildegy.wargames.io.BattleTests;
 
+import no.ntnu.vildegy.wargames.io.Battle.Army;
+import no.ntnu.vildegy.wargames.io.Battle.Battle;
+import no.ntnu.vildegy.wargames.io.Units.CavarlyUnit;
+import no.ntnu.vildegy.wargames.io.Units.CommanderUnit;
+import no.ntnu.vildegy.wargames.io.Units.RangedUnit;
+import no.ntnu.vildegy.wargames.io.Units.Unit;
 import org.junit.Test;
 import java.util.ArrayList;
 
