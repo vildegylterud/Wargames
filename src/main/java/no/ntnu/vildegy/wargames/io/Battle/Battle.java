@@ -48,36 +48,6 @@ public class Battle {
         }
         return armyTwo;
 
-
-/**
-        if (winner != null) throw new UnsupportedOperationException("The simulation has already been run");
-
-        while (armyOne.hasUnits() && armyTwo.hasUnits()) {
-            Army attackingArmy;
-            Army defendingArmy;
-
-            int index = new Random().nextInt(2);
-            if (index == 0) {
-                attackingArmy = armyOne;
-                defendingArmy = armyTwo;
-            } else {
-                attackingArmy = armyTwo;
-                defendingArmy = armyOne;
-            }
-
-            Unit attacker = attackingArmy.getRandom();
-            Unit defender = defendingArmy.getRandom();
-
-            attacker.attack(defender);
-
-            if (defender.getHealth() <= 0)
-                defendingArmy.remove(defender);
-        }
-
-        winner = (armyOne.hasUnits()) ? armyOne : armyTwo;
-        return winner;
-    }*/
-
     }
 
     public void armyOneAttack() {

@@ -36,7 +36,6 @@ public class RangedUnit extends Unit {
      */
     @Override
     public int getResistBonus() {
-
         if (timesAttacked == 1) {
             distanceDefense = 6;
         } else if (timesAttacked == 2) {
@@ -45,6 +44,10 @@ public class RangedUnit extends Unit {
             distanceDefense = 2;
         }
         return distanceDefense;
+    }
+
+    public String getType() {
+        return "RangedUnit" ;
     }
 
 }

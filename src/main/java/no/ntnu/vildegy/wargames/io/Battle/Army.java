@@ -1,26 +1,31 @@
 package no.ntnu.vildegy.wargames.io.Battle;
 
 import no.ntnu.vildegy.wargames.io.Units.*;
-
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
 import java.util.stream.Collectors;
 
 
-public class Army {
+public class Army{
 
     private String name;
     private ArrayList<Unit> units;
 
-
+    /**
+     * Creates an instance of the army
+     * Initializing the instance
+     * @param name
+     * @throws IllegalArgumentException
+     */
     public Army(String name) throws IllegalArgumentException {
-        if (name.isBlank()) throw new IllegalArgumentException("Name can not be empty");
+        if (name.trim().isEmpty()) throw new IllegalArgumentException("Name can not be empty");
         this.name = name;
+        this.units = new ArrayList<>();
     }
 
     public Army(String name, ArrayList<Unit> units) throws IllegalArgumentException {
-        if (name.isBlank()) throw new IllegalArgumentException("Name can not be empty");
+        if (name.trim().isEmpty()) throw new IllegalArgumentException("Name can not be empty");
         this.name = name;
         this.units = units;
     }
@@ -37,6 +42,7 @@ public class Army {
         if(!units.contains(unit))
         units.add(unit);
     }
+
 
     /**Method for adding a new list inside a already existing list
      *
@@ -151,11 +157,15 @@ public class Army {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Army)) return false;
-        Army army = (Army) o;
-        return Objects.equals(name, army.name) && Objects.equals(units, army.units);
+        if (o instanceof Army) {
+            Army a = (Army) o;
+            return name.equals(a.getName())
+                    && units.equals(a.getAllUnits());
+        } else {
+            return false;
+        }
     }
+
 
     @Override
     public int hashCode() {

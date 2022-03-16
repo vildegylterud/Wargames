@@ -1,17 +1,21 @@
 package no.ntnu.vildegy.wargames.io.Units;
 
+import java.io.Serializable;
+
 public abstract class Unit {
 
     protected String name;
     protected int health;
     protected int attack;
     protected int armour;
-
     public int timesAttacked;
+    public String type = getClass().getSimpleName();
 
-    /** Constructor
+
+    /**
+     * Constructor
      *
-     * @param name a short descriptive name
+     * @param name   a short descriptive name
      * @param health value of health, cannot be less than 0
      * @param attack represents the unit´s weapon
      * @param armour defensive value that protects during attack
@@ -27,7 +31,31 @@ public abstract class Unit {
     }
 
 
-    /**x
+
+
+
+
+
+
+
+
+
+
+
+
+    public Unit(String type, String name, String health) {
+        this.name = name;
+        this.type = type;
+        this.health = Integer.parseInt(health);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    /**
+     * x
      * Method that finds the health of the opponent after attacking the unit
      * Adds a counter that counts how many
      *
@@ -57,26 +85,27 @@ public abstract class Unit {
         return armour;
     }
 
+
     /**
      * Set method for health value
      *
      * @param health cant be set to less than zero
-     * if so, illegal argument exception will be thrown
+     *               if so, illegal argument exception will be thrown
      */
     public void setHealth(int health) {
-            this.health = health;
+        this.health = health;
     }
 
     @Override
     public String toString() {
         return "Unit: " +
-                "Name: '" + name +  "\n" +
+                "Name: '" + name + "\n" +
                 "Health: " + health + "\n" +
                 "Attack: " + attack + "\n" +
                 "Armour: " + armour;
     }
 
     public abstract int getAttackBonus();
-    public abstract int getResistBonus();
 
+    public abstract int getResistBonus();
 }
