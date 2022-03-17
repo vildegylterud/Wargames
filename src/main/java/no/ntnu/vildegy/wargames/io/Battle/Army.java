@@ -15,14 +15,15 @@ public class Army{
     /**
      * Creates an instance of the army
      * Initializing the instance
-     * @param name
-     * @throws IllegalArgumentException
+     * @param name, short army name
+     * @throws IllegalArgumentException if the name is empty
      */
     public Army(String name) throws IllegalArgumentException {
         if (name.trim().isEmpty()) throw new IllegalArgumentException("Name can not be empty");
         this.name = name;
         this.units = new ArrayList<>();
     }
+
 
     public Army(String name, ArrayList<Unit> units) throws IllegalArgumentException {
         if (name.trim().isEmpty()) throw new IllegalArgumentException("Name can not be empty");
@@ -44,7 +45,7 @@ public class Army{
     }
 
 
-    /**Method for adding a new list inside a already existing list
+    /**Method for adding a new list inside an already existing list
      *
      * @param unitsList arraylist with units
      */
@@ -54,13 +55,14 @@ public class Army{
         }
     }
 
-    /**Method that removes a unit from the list unitlist
+    /**Method that removes a unit from the list unit list
      *
      * @param unit, the unit that we want to remove
      */
     public void remove(Unit unit) {
         units.remove(unit);
     }
+
 
     /**
      * Checks if the list of units is empty

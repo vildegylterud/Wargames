@@ -8,7 +8,8 @@ public class RangedUnit extends Unit {
     int rangeBonus = 3;
 
     /**
-     * Constructor
+     * Constructor, initializing a new RangedUnit
+     * Inherit from the superclass Unit
      *
      * @param name   a short descriptive name
      * @param health value of health, cannot be less than 0
@@ -31,7 +32,7 @@ public class RangedUnit extends Unit {
 
     /**
      *
-     * @return a int distancedefence depending on
+     * @return a int distance-defence depending on
      * the counter timesAttacked in Unit attack() method
      */
     @Override
@@ -45,11 +46,6 @@ public class RangedUnit extends Unit {
         }
         return distanceDefense;
     }
-
-    public String getType() {
-        return "RangedUnit" ;
-    }
-
 }
 
 

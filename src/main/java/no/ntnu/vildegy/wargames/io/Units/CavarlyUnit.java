@@ -3,7 +3,8 @@ package no.ntnu.vildegy.wargames.io.Units;
 public class CavarlyUnit extends Unit {
 
     /**
-     * Constructor
+     * Constructor, initializing a new CavarlyUnit
+     * Inherit from the superclass Unit
      *
      * @param name   a short descriptive name
      * @param health value of health, cannot be less than 0
@@ -18,14 +19,13 @@ public class CavarlyUnit extends Unit {
         super(name, health, 20, 12);
     }
 
-    /**Method for getting the totalbonus (AttackBonus) depending on
+    /** Method for getting the total bonus (AttackBonus) depending on
      * how many times the Cavarly unit has been attacked
      *
-     * after 1 attack, the totalbonus is chargebonus + melee
-     * from 2 attacks and after the totalbonus is the meleeee
+     * after 1 attack, the total bonus is charge bonus + melee
+     * from 2 attacks and after the total bonus is the meleee
      *
-     *
-     * @return
+     * @return the total attack bonus
      */
     @Override
     public int getAttackBonus() {
@@ -41,6 +41,10 @@ public class CavarlyUnit extends Unit {
         return totalBonus;
     }
 
+
+    /**
+     * @return the total resist bonus to the cavarly unit
+     */
     @Override
     public int getResistBonus() {
         int meleeBonus = 1;

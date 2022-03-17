@@ -6,7 +6,8 @@ public class CommanderUnit extends CavarlyUnit {
 
 
     /**
-     * Constructor
+     * Constructor, initializing a new CommanderUnit
+     * Inherit from the superclass Unit
      *
      * @param name   a short descriptive name
      * @param health value of health, cannot be less than 0
@@ -18,6 +19,12 @@ public class CommanderUnit extends CavarlyUnit {
         super(name, health, attack, armour);
     }
 
+    /**
+     * Initializing a new CommanderUnit and sets the attack and armour value
+     * Inherit from the superclass Unit
+     * @param name a short descirpitive name
+     * @param health value of health, cannot be less than 0
+     */
     public CommanderUnit(String name, int health) {
         super(name, health, 25, 15);
     }

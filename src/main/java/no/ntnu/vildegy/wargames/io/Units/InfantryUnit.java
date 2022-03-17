@@ -3,7 +3,8 @@ package no.ntnu.vildegy.wargames.io.Units;
 public class InfantryUnit extends Unit {
 
     /**
-     * Constructor
+     * Constructor, initializing a new InfantryUnit
+     * Inherit from the superclass Unit
      *
      * @param name   a short descriptive name
      * @param health value of health, cannot be less than 0

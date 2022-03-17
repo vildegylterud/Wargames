@@ -1,6 +1,5 @@
 package no.ntnu.vildegy.wargames.io.Units;
 
-import java.io.Serializable;
 
 public abstract class Unit {
 
@@ -9,11 +8,11 @@ public abstract class Unit {
     protected int attack;
     protected int armour;
     public int timesAttacked;
-    public String type = getClass().getSimpleName();
 
 
     /**
      * Constructor
+     * Initializing a new Unit and checks for invalid inpus
      *
      * @param name   a short descriptive name
      * @param health value of health, cannot be less than 0
@@ -30,32 +29,13 @@ public abstract class Unit {
         this.setHealth(health);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public Unit(String type, String name, String health) {
-        this.name = name;
-        this.type = type;
-        this.health = Integer.parseInt(health);
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
 
     /**
-     * x
+     *
      * Method that finds the health of the opponent after attacking the unit
      * Adds a counter that counts how many
      *
@@ -89,12 +69,30 @@ public abstract class Unit {
     /**
      * Set method for health value
      *
-     * @param health cant be set to less than zero
-     *               if so, illegal argument exception will be thrown
+     * @param health cannot be set to less than zero
+     * if so, illegal argument exception will be thrown
      */
     public void setHealth(int health) {
         this.health = health;
     }
+
+
+    /**
+     * @param o, the reference object with which to compare
+     * @return true if this object is the same as the obj argument, false otherwise.
+     */
+    public boolean equals(Object o) {
+        if (o instanceof Unit) {
+            Unit u = (Unit) o;
+            return name.equals(u.getName())
+                    && health == u.getHealth()
+                    && attack == u.getAttack()
+                    && armour == u.getArmour();
+        } else {
+            return false;
+        }
+    }
+
 
     @Override
     public String toString() {

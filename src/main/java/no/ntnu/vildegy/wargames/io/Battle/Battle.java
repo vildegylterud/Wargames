@@ -9,7 +9,7 @@ public class Battle {
 
     private Army armyOne;
     private Army armyTwo;
-    private Army winner;
+
 
 
     public Battle(Army armyOne, Army armyTwo) {
@@ -19,8 +19,13 @@ public class Battle {
         this.armyTwo = armyTwo;
     }
 
-    public Army getWinner() {
-        return winner;
+
+    /**Method for getting the winner from the simulate method
+     *
+     * @return the name of the army winner
+     */
+    public String getWinner() {
+        return simulate().getName();
     }
 
     /** Simulate a battle
@@ -50,6 +55,10 @@ public class Battle {
 
     }
 
+    /**
+     * Random method for finding the army
+     * that attacks in the simulate method
+     */
     public void armyOneAttack() {
         Unit armyTwoRandomUnit = armyTwo.getRandom();
         armyOne.getRandom().attack(armyTwoRandomUnit);
@@ -59,6 +68,10 @@ public class Battle {
         }
     }
 
+    /**
+     * Random method for finding the army
+     * that attacks in the simulate method
+     */
     public void armyTwoAttack(){
         Unit armyOneRandomUnit = armyOne.getRandom();
         armyTwo.getRandom().attack(armyOneRandomUnit);
@@ -74,6 +87,6 @@ public class Battle {
         return "Battle: " + "\n" +
                 "army one: " + armyOne + "\n"+
                 "army two: " + armyTwo + "\n" +
-                "Winner: " + this.simulate().getName();
+                "Winner: " + getWinner();
     }
 }

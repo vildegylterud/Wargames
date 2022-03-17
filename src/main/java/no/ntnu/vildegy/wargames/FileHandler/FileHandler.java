@@ -31,11 +31,10 @@ public class FileHandler {
     }
 
 
-    //TODO: all javadoc i filklassene er feil
     /**
-     * Method for exporting postal register to file
+     * Method for exporting an Army to file
      *
-     * @param army a list with all the postal code objects
+     * @param army a list with all the army objects
      * @param file
      * @throws IOException
      */
