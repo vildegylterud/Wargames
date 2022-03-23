@@ -8,7 +8,7 @@ public class CommanderUnitTest {
 
     //Sjekker at commanderUnit faktisk arver getAttackBonus fra CavarlyUnit
     @Test
-    void getAttackBonusSuccess2() {
+    void getAttackBonusSuccess() {
         RangedUnit rangedUnit = new RangedUnit("RangedUnit", 100);
         CommanderUnit commanderUnit = new CommanderUnit("CommanderUnit", 100);
 

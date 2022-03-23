@@ -13,6 +13,7 @@ class ArmyTest {
 
     //bruker assertEquals og NotEquals for å sjekke at army1 er ulik før og etter remove-meotden
     @Test
+    @DisplayName("Using remove method")
     void remove() {
         RangedUnit rangedUnit = new RangedUnit("RangedUnit", 100);
         CavarlyUnit cavarlyUnit = new CavarlyUnit("CavarlyUnit", 100);
@@ -40,6 +41,7 @@ class ArmyTest {
 
     //oppretter en liste units og adder tre units i den. Metoden skal derfor returnere true
     @Test
+    @DisplayName("Checking hasUnits success")
     void hasUnitsSuccess() {
         RangedUnit rangedUnit = new RangedUnit("RangedUnit", 100);
         CavarlyUnit cavarlyUnit = new CavarlyUnit("CavarlyUnit", 100);
@@ -57,6 +59,7 @@ class ArmyTest {
 
     //oppretter en tom liste med units som en army. Metoden skal returnere false
     @Test
+    @DisplayName("Checking unsuccessful hasUnits test")
     void hasUnitsUnSuccess() {
 
         ArrayList<Unit> units = new ArrayList<Unit>();
@@ -65,8 +68,9 @@ class ArmyTest {
         assertFalse(army.hasUnits());
     }
 
-    //bruker assert eqals for å sjekke at meotden finner alle units i en army
+    //bruker assert equals for å sjekke at meotden finner alle units i en army
     @Test
+    @DisplayName("Get all units from arraylist of units")
     void getAllUnits() {
         RangedUnit rangedUnit = new RangedUnit("RangedUnit", 100);
         CavarlyUnit cavarlyUnit = new CavarlyUnit("CavarlyUnit", 100);
@@ -84,7 +88,9 @@ class ArmyTest {
     }
 
     //legger til samme lista med units i to army. metoden skal returnere true
+
     @Test
+    @DisplayName("Testing equals method, success")
     void testEqualsSuccess() {
         RangedUnit rangedUnit = new RangedUnit("RangedUnit", 100);
         CavarlyUnit cavarlyUnit = new CavarlyUnit("CavarlyUnit", 100);
@@ -104,6 +110,7 @@ class ArmyTest {
 
     //legger kun til units i army1 slik at army1 og 2 ikke er like
     @Test
+    @DisplayName("Testing equals method, unsuccessful")
     void testEqualsUnSuccess() {
         RangedUnit rangedUnit = new RangedUnit("RangedUnit", 100);
         CavarlyUnit cavarlyUnit = new CavarlyUnit("CavarlyUnit", 100);
@@ -136,7 +143,6 @@ class ArmyTest {
 
         Army army1 = new Army("army", units);
         System.out.println(army1.getRandom());
-
     }
 
 

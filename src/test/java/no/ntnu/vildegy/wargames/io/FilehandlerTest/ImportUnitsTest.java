@@ -34,7 +34,7 @@ public class ImportUnitsTest {
 
         //verifiser at armeen som er lest, er som forventet
 
-        assertTrue(testArmy.equals(army));
+        assertEquals(testArmy,army);
 
     }
 }

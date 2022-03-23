@@ -7,6 +7,8 @@ import no.ntnu.vildegy.wargames.io.Units.CommanderUnit;
 import no.ntnu.vildegy.wargames.io.Units.RangedUnit;
 import no.ntnu.vildegy.wargames.io.Units.Unit;
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
  public class BattleTest {
 
          @Test
+         @DisplayName("Checking winning army has units left")
          public void winningArmyHasUnitsLeft() {
              RangedUnit rangedUnit = new RangedUnit("RangedUnit", 100);
              CavarlyUnit cavarlyUnit = new CavarlyUnit("CavarlyUnit", 100);

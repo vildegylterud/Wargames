@@ -81,6 +81,7 @@ public abstract class Unit {
      * @param o, the reference object with which to compare
      * @return true if this object is the same as the obj argument, false otherwise.
      */
+    @Override
     public boolean equals(Object o) {
         if (o instanceof Unit) {
             Unit u = (Unit) o;
