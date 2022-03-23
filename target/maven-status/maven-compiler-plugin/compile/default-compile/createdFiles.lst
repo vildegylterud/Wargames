@@ -1,0 +1,13 @@
+no/ntnu/vildegy/wargames/backend/io/Battle/Battle.class
+no/ntnu/vildegy/wargames/backend/io/Units/CommanderUnit.class
+no/ntnu/vildegy/wargames/backend/io/Units/InfantryUnit.class
+no/ntnu/vildegy/wargames/backend/filehandler/ExportUnits.class
+no/ntnu/vildegy/wargames/backend/filehandler/Constants.class
+no/ntnu/vildegy/wargames/backend/io/Units/Unit.class
+no/ntnu/vildegy/wargames/backend/io/Units/RangedUnit.class
+no/ntnu/vildegy/wargames/backend/io/Battle/Army.class
+no/ntnu/vildegy/wargames/frontend/Main.class
+no/ntnu/vildegy/wargames/frontend/MainController.class
+no/ntnu/vildegy/wargames/backend/filehandler/ImportUnits.class
+no/ntnu/vildegy/wargames/backend/filehandler/Constants$CSV__ARMY_FIELDS.class
+no/ntnu/vildegy/wargames/backend/io/Units/CavarlyUnit.class
