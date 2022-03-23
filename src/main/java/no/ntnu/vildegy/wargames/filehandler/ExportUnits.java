@@ -1,4 +1,4 @@
-package no.ntnu.vildegy.wargames.FileHandler;
+package no.ntnu.vildegy.wargames.filehandler;
 
 import no.ntnu.vildegy.wargames.io.Battle.Army;
 import no.ntnu.vildegy.wargames.io.Units.Unit;
@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class FileHandler {
+public class ExportUnits {
 
     private static String delimiter = Constants.CSV_DELIMITER_STRING;
 
@@ -19,7 +19,7 @@ public class FileHandler {
      * @param path
      * @throws IOException
      */
-    public FileHandler(String path) throws IOException {
+    public ExportUnits(String path) throws IOException {
         if (!path.endsWith(".csv")) {
             throw new IOException(path + " is not a .csv file.");
         }
@@ -30,7 +30,6 @@ public class FileHandler {
         }
     }
 
-
     /**
      * Method for exporting an Army to file
      *
@@ -40,8 +39,9 @@ public class FileHandler {
      */
     public static void exportToFile(Army army, File file) throws IOException {
         PrintWriter printWriter = new PrintWriter(new FileWriter(file));
+        printWriter.println(army.getName() + delimiter);
         for (Unit unit : army.getAllUnits()) {
-            printWriter.println(army.getName() + delimiter + unit.getClass().getName() + delimiter + unit.getName() + delimiter + unit.getHealth());
+            printWriter.println(unit.getClass().getSimpleName() + delimiter + unit.getName() + delimiter + unit.getHealth());
         }
         printWriter.close();
     }

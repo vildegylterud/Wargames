@@ -6,7 +6,7 @@ public class CavarlyUnit extends Unit {
      * Constructor, initializing a new CavarlyUnit
      * Inherit from the superclass Unit
      *
-     * @param name   a short descriptive name
+     * @param name a short descriptive name
      * @param health value of health, cannot be less than 0
      * @param attack represents the unit´s weapon
      * @param armour defensive value that protects during attack
@@ -18,6 +18,7 @@ public class CavarlyUnit extends Unit {
     public CavarlyUnit(String name, int health) {
         super(name, health, 20, 12);
     }
+
 
     /** Method for getting the total bonus (AttackBonus) depending on
      * how many times the Cavarly unit has been attacked
@@ -40,7 +41,6 @@ public class CavarlyUnit extends Unit {
         }
         return totalBonus;
     }
-
 
     /**
      * @return the total resist bonus to the cavarly unit

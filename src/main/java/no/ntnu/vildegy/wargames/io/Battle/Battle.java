@@ -3,7 +3,6 @@ package no.ntnu.vildegy.wargames.io.Battle;
 import no.ntnu.vildegy.wargames.io.Units.Unit;
 
 import java.util.Objects;
-import java.util.Random;
 
 public class Battle {
 
@@ -84,7 +83,7 @@ public class Battle {
 
     @Override
     public String toString() {
-        return "Battle: " + "\n" +
+        return "Battle between: " + "\n" +
                 "army one: " + armyOne + "\n"+
                 "army two: " + armyTwo + "\n" +
                 "Winner: " + getWinner();

@@ -1,4 +1,4 @@
-package no.ntnu.vildegy.wargames.FileHandler;
+package no.ntnu.vildegy.wargames.filehandler;
 
 import no.ntnu.vildegy.wargames.io.Battle.Army;
 import java.io.BufferedReader;
@@ -13,20 +13,19 @@ import no.ntnu.vildegy.wargames.io.Units.RangedUnit;
 
 public class ImportUnits {
 
-
     /**Method for importing an army object from file
      *
-     * @return the file informtion as an army object with units
+     * @return the file information as an army object with units
      * @throws IOException
      */
-        public static Army importArmy() throws IOException {
+        public static Army importArmy(String fileName) throws IOException {
 
             try {
                 ClassLoader classLoader = ImportUnits.class.getClassLoader();
 
                 // Return a input stream for reading the specific resource
 
-                InputStream inputStream = classLoader.getResourceAsStream("ImportArmyFile.csv");
+                InputStream inputStream = classLoader.getResourceAsStream(fileName);
 
                 //Reads the text from the inputStream. Standard charset set to UTF 8
                 BufferedReader readText = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
@@ -70,7 +69,7 @@ public class ImportUnits {
 
     public static void main(String[] args) {
         try {
-            Army testArmy = importArmy();
+            Army testArmy = importArmy("ImportArmyFile.csv");
             System.out.println(testArmy);
         } catch(Exception e) {
             System.out.println(e);

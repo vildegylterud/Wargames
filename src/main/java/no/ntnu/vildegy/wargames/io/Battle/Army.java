@@ -1,6 +1,7 @@
 package no.ntnu.vildegy.wargames.io.Battle;
 
 import no.ntnu.vildegy.wargames.io.Units.*;
+
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
@@ -29,6 +30,11 @@ public class Army{
         if (name.trim().isEmpty()) throw new IllegalArgumentException("Name can not be empty");
         this.name = name;
         this.units = units;
+    }
+
+    public Army() {
+        this.units = new ArrayList<>();
+        this.name = "";
     }
 
     public String getName() {

@@ -1,4 +1,4 @@
-package no.ntnu.vildegy.wargames.FileHandler;
+package no.ntnu.vildegy.wargames.filehandler;
 
 import java.util.HashMap;
 
