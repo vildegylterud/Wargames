@@ -2,10 +2,12 @@ module Wargames {
 
     requires javafx.controls;
     requires javafx.fxml;
-    exports no.ntnu.vildegy.wargames.io.Battle;
-    exports no.ntnu.vildegy.wargames.io.Units;
-    exports no.ntnu.vildegy.wargames.filehandler;
-    exports no.ntnu.vildegy.wargames.frontend;
+
+    opens no.ntnu.vildegy.wargames.controller to javafx.fxml;
+    opens no.ntnu.vildegy.wargames.model to javafx.graphics,javafx.base, javafx.fxml;
+
+    exports no.ntnu.vildegy.wargames;
+
 
 
 }

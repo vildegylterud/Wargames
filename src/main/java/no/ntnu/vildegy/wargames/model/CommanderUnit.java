@@ -1,4 +1,6 @@
-package no.ntnu.vildegy.wargames.io.Units;
+package no.ntnu.vildegy.wargames.model;
+
+import no.ntnu.vildegy.wargames.model.CavarlyUnit;
 
 public class CommanderUnit extends CavarlyUnit {
 

@@ -1,5 +1,7 @@
 package no.ntnu.vildegy.wargames.io.Units;
 
+import no.ntnu.vildegy.wargames.model.CommanderUnit;
+import no.ntnu.vildegy.wargames.model.RangedUnit;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

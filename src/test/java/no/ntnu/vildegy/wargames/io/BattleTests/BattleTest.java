@@ -1,11 +1,11 @@
 package no.ntnu.vildegy.wargames.io.BattleTests;
 
-import no.ntnu.vildegy.wargames.io.Battle.Army;
-import no.ntnu.vildegy.wargames.io.Battle.Battle;
-import no.ntnu.vildegy.wargames.io.Units.CavarlyUnit;
-import no.ntnu.vildegy.wargames.io.Units.CommanderUnit;
-import no.ntnu.vildegy.wargames.io.Units.RangedUnit;
-import no.ntnu.vildegy.wargames.io.Units.Unit;
+import no.ntnu.vildegy.wargames.model.Army;
+import no.ntnu.vildegy.wargames.model.Battle;
+import no.ntnu.vildegy.wargames.model.CavarlyUnit;
+import no.ntnu.vildegy.wargames.model.CommanderUnit;
+import no.ntnu.vildegy.wargames.model.RangedUnit;
+import no.ntnu.vildegy.wargames.model.Unit;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 

@@ -1,36 +1,43 @@
 package no.ntnu.vildegy.wargames.io.FilehandlerTest;
 
 import no.ntnu.vildegy.wargames.filehandler.ExportUnits;
-import no.ntnu.vildegy.wargames.io.Battle.Army;
-import no.ntnu.vildegy.wargames.io.Units.CommanderUnit;
-import no.ntnu.vildegy.wargames.io.Units.InfantryUnit;
+import no.ntnu.vildegy.wargames.model.Army;
+import no.ntnu.vildegy.wargames.model.InfantryUnit;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.File;
 import java.io.IOException;
+
 
 public class ExportUnitsTest {
 
 
     @Test
-    public void  exportUnitsTest() throws IOException {
-
-        //oppretter en army som senere skal eksporteres
-
-        Army army = new Army("Human army");
-
-        InfantryUnit infantryUnit = new InfantryUnit("Footman", 100);
-        CommanderUnit commanderUnit = new CommanderUnit("Mountain King", 180);
-
-        army.add(infantryUnit);
-        army.add(commanderUnit);
-
-        System.out.println(army);
-
-        //eksporter army til .csv fil
-        ExportUnits.exportToFile(army, new File("ExportTestFile.csv"));
-
+    @DisplayName("Checks if the method exportToFile() thrown an exception when the file does not end with '.csv'")
+    public void testToCheckThatAFileWithTheWrongFormatThrowsIOException() {
+        assertThrows(IOException.class, () -> ExportUnits.exportToFile(new Army("test army"), new File("src/main/resources/ExportWrongFormat.txt")));
     }
-}
 
+
+    @Test
+    @DisplayName("Checks if the method exportToFile() does not throw an IOException")
+    public void testExportWithNoIOException() throws IOException {
+        var testArmy = new Army("Test army");
+        testArmy.add(new InfantryUnit("Footman", 100));
+        testArmy.add(new InfantryUnit("Footman", 100));
+
+        try {
+            ExportUnits.exportToFile(testArmy, new File("src/main/resources/ExportTest.csv"));
+        } catch (IOException e) {
+            fail();
+        }
+    }
+
+    @Test
+    @DisplayName("Checks if the method exportToFile() Throws An IOException when the file is a directory instead of a csv file")
+    public void testExportWithNoExistingFile() {
+        assertThrows(IOException.class, () -> ExportUnits.exportToFile(new Army("test army"), new File("src/main/resources/Armyfile")));
+    }
+
+}

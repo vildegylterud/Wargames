@@ -1,4 +1,4 @@
-package no.ntnu.vildegy.wargames.io.Units;
+package no.ntnu.vildegy.wargames.model;
 
 public class InfantryUnit extends Unit {
 

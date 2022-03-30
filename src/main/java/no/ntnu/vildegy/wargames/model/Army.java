@@ -1,6 +1,4 @@
-package no.ntnu.vildegy.wargames.io.Battle;
-
-import no.ntnu.vildegy.wargames.io.Units.*;
+package no.ntnu.vildegy.wargames.model;
 
 import java.util.ArrayList;
 import java.util.Objects;

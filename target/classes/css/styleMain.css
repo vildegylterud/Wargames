@@ -5,7 +5,6 @@ And implements the search button icon to the search button
 
 
 .clearButton {
-    -fx-graphic: url("clear.png");
     -fx-focus-traversable: false;
     -fx-background-color: #212121;
     -fx-control-inner-background: derive(-fx-base, 35%);
@@ -14,6 +13,17 @@ And implements the search button icon to the search button
 
 .clearButton:hover {
     -fx-cursor: HAND;
+}
+
+.simulateButton:hover{
+    -fx-cursor: HAND;
+}
+
+.simulateButton {
+    -fx-focus-traversable: false;
+    -fx-background-color: #212121;
+    -fx-control-inner-background: derive(-fx-base, 35%);
+    -fx-effect: dropshadow(gaussian , #424242 , 10,0,0,1 );
 }
 
 .menu-bar:hover {

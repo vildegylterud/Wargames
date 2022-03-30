@@ -1,17 +1,20 @@
-package no.ntnu.vildegy.wargames.frontend;
+package no.ntnu.vildegy.wargames.controller;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Window;
 import no.ntnu.vildegy.wargames.filehandler.ExportUnits;
 import no.ntnu.vildegy.wargames.filehandler.ImportUnits;
-import no.ntnu.vildegy.wargames.io.Battle.Army;
-import no.ntnu.vildegy.wargames.io.Units.Unit;
+import no.ntnu.vildegy.wargames.model.Army;
+import no.ntnu.vildegy.wargames.model.Unit;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,40 +27,39 @@ public class MainController {
 
     @FXML
     private ObservableList<Unit> observableList;
-
-    public TableColumn<Unit,String> armyOne;
-    public TableColumn<Unit,String> armyTwo;
-    public TableColumn<Unit,String> armyWinner;
+    public TableColumn<Unit,String> armyOneColumn;
+    public TableColumn<Unit,String> armyTwoColumn;
+    public TableColumn<Unit,String> winnerColumn;
     public TableView<Unit> tableView;
-
     public Button clearButton;
     public Button simulateButton;
-
     public AnchorPane anchorPane;
     public MenuBar menuBar;
 
 
+
     /**
      * Initializing the application
-     * creates an instance of postal code register and an
+     * creates an instance of Army and an
      * observable list to show in tableview
      */
+    /*
     @FXML
     public void initialize() throws IOException {
         this.army = new Army();
 
         ImportUnits.importArmy(String.valueOf(army));
 
-        armyOne.setCellValueFactory(new PropertyValueFactory<>("ARMY_ONE"));
-        armyTwo.setCellValueFactory(new PropertyValueFactory<>("ARMY_TWO"));
-        armyWinner.setCellValueFactory(new PropertyValueFactory<>("WINNER"));
+        armyOneColumn.setCellValueFactory(new PropertyValueFactory<>("ARMY_ONE"));
+        armyTwoColumn.setCellValueFactory(new PropertyValueFactory<>("ARMY_TWO"));
+        winnerColumn.setCellValueFactory(new PropertyValueFactory<>("WINNER"));
 
         anchorPane.setStyle("-fx-background-color: #424242");
 
         this.observableList = FXCollections.observableArrayList();
         updateTableView(army.getAllUnits());
 
-    }
+    }*/
 
     /**
      * Shows an about box with information of the program
@@ -133,6 +135,14 @@ public class MainController {
         tableView.getItems().addAll(observableList);
     }
 
+    public void clearTables() {
+
+    }
+
+    public void simulate() {
+
+    }
+
     /**
      * Method for exporting Txt file
      */
@@ -149,6 +159,24 @@ public class MainController {
             messageAlertToUser("Error in exporting file. Could not import file");
             e.printStackTrace();
         }
+    }
+
+    //TODO: metoden fungerer ikke opitmalt
+    @FXML
+    public void importFromFile() {
+        FileChooser file =  new FileChooser();
+        file.setTitle("Open file");
+        file.showOpenDialog(null);
+
+        String filename = file.getInitialFileName();
+
+        try {
+            ImportUnits.importArmy(filename);
+        } catch (IOException e) {
+            messageAlertToUser("Error in importing file. Could not import file");
+            e.printStackTrace();
+        }
+
     }
 
 }

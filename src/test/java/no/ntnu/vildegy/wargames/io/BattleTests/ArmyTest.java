@@ -1,7 +1,6 @@
 package no.ntnu.vildegy.wargames.io.BattleTests;
 
-import no.ntnu.vildegy.wargames.io.Battle.Army;
-import no.ntnu.vildegy.wargames.io.Units.*;
+import no.ntnu.vildegy.wargames.model.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

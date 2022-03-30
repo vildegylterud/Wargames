@@ -1,7 +1,7 @@
 package no.ntnu.vildegy.wargames.filehandler;
 
-import no.ntnu.vildegy.wargames.io.Battle.Army;
-import no.ntnu.vildegy.wargames.io.Units.Unit;
+import no.ntnu.vildegy.wargames.model.Army;
+import no.ntnu.vildegy.wargames.model.Unit;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -38,12 +38,21 @@ public class ExportUnits {
      * @throws IOException
      */
     public static void exportToFile(Army army, File file) throws IOException {
+
+        if (!file.getAbsolutePath().endsWith(".csv")) {
+            throw new IOException(file + " is not a .csv file.");
+        }
         PrintWriter printWriter = new PrintWriter(new FileWriter(file));
         printWriter.println(army.getName() + delimiter);
         for (Unit unit : army.getAllUnits()) {
             printWriter.println(unit.getClass().getSimpleName() + delimiter + unit.getName() + delimiter + unit.getHealth());
         }
         printWriter.close();
+
+        if (!file.exists()) {
+            throw new IOException("Did not find the file " + file.getAbsolutePath());
+        }
+
     }
 
 }
